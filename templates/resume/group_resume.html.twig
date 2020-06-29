@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume index{% endblock %}
+
+{% block body %}
+    <h1>Statistics</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Resume Name</th>
+                <th>Count Positive Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupResume in groupResumes %}
+            <tr>
+                <td>{{ groupResume.path }}</td>
+                <td>{{ groupResume.react_sum }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

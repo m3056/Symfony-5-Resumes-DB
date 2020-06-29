@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume{% endblock %}
+
+{% block body %}
+    <h1>Resume</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resume.id }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ resume.position }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ resume.text }}</td>
+            </tr>
+            <tr>
+                <th>CreateDate</th>
+                <td>{{ resume.createDate }}</td>
+            </tr>
+            <tr>
+                <th>ChangeDate</th>
+                <td>{{ resume.changeDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('resume_index') }}">back to list</a>
+
+    <a href="{{ path('resume_edit', {'id': resume.id}) }}">edit</a>
+
+    {{ include('resume/_delete_form.html.twig') }}
+{% endblock %}

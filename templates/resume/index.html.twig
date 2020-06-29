@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume index{% endblock %}
+
+{% block body %}
+    <h1>Resumes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Position</th>
+                <th>CreateDate</th>
+                <th>ChangeDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resume in resumes %}
+            <tr>
+                <td>{{ resume.id }}</td>
+                <td>{{ resume.position }}</td>
+                <td>{{ resume.createDate }}</td>
+                <td>{{ resume.changeDate }}</td>
+                <td>
+                    <a href="{{ path('resume_show', {'id': resume.id}) }}">show</a>
+                    <a href="{{ path('resume_edit', {'id': resume.id}) }}">edit</a>
+                    <a href="{{ asset('uploads/brochures/' ~ resume.text) }}">View resume (PDF)</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('resume_new') }}">Create new</a>
+{% endblock %}
