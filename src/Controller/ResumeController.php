@@ -79,8 +79,6 @@ class ResumeController extends AbstractController
     
         $sendedResume->setDate(date('F j, Y, g:i a'));
         $random = random_int(0, 1);
-        /* if ($random==1) $random='positive';
-        else $random='negative'; */
         $sendedResume->setReaction($random);
         $sendedResume->setCompanyName($company->getName());
         $groupResumes = $this->getDoctrine()
